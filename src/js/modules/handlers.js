@@ -14,7 +14,14 @@ const handlers = () => {
         }
 
         if (target.classList.contains('menu__icon')) showMenu(true);
-        if (target.classList.contains('close-menu') || target.classList.contains('menu-link')) showMenu(false);
+
+        if (
+            target.classList.contains('close-menu') ||
+            target.classList.contains('menu-link') ||
+            target.closest('.menu-link')
+        ) {
+            showMenu(false);
+        }
 
         if (
             target.classList.contains('menu-link') ||
@@ -23,11 +30,13 @@ const handlers = () => {
         ) {
             e.preventDefault();
 
+            let point = target.getAttribute('href');
+
             if (target.classList.contains('button-footer')) {
-                smoothScrolling(target.firstElementChild.getAttribute('href'));
+                point = target.firstElementChild.getAttribute('href');
             }
 
-            smoothScrolling(target.getAttribute('href'));
+            if (point !== '#') smoothScrolling(point);
         }
     });
 };
