@@ -3,9 +3,13 @@ import showMenu from './showMenu';
 import smoothScrolling from './smoothScrolling';
 
 const handlers = () => {
+    const popupDialogMenu = document.querySelector('.popup-dialog-menu');
+
     document.addEventListener('click', e => {
+        e.preventDefault();
         const target = e.target;
 
+        // Show/Hide Phone Number
         if (
             target.classList.contains('header-contacts__arrow') ||
             target.parentNode.classList.contains('header-contacts__arrow')
@@ -13,30 +17,30 @@ const handlers = () => {
             showPhoneNumber();
         }
 
-        if (target.classList.contains('menu__icon')) showMenu(true);
+        // Show Menu
+        if (target.classList.contains('menu__icon')) showMenu(popupDialogMenu, true);
 
-        if (
-            target.classList.contains('close-menu') ||
-            target.classList.contains('menu-link') ||
-            target.closest('.menu-link')
-        ) {
-            showMenu(false);
-        }
-
-        if (
-            target.classList.contains('menu-link') ||
-            target.classList.contains('button-footer') ||
-            target.parentNode.classList.contains('button-footer')
-        ) {
-            e.preventDefault();
-
-            let point = target.getAttribute('href');
-
-            if (target.classList.contains('button-footer')) {
-                point = target.firstElementChild.getAttribute('href');
+        // Close Menu / Smooth Scrolling
+        if (popupDialogMenu.classList.contains('show-menu')) {
+            if (
+                target.classList.contains('close-menu') ||
+                (!target.closest('.popup-dialog-menu') && !target.classList.contains('menu__icon'))
+            ) {
+                showMenu(popupDialogMenu, false);
             }
 
-            if (point !== '#') smoothScrolling(point);
+            if (target.classList.contains('menu-link') || target.closest('.menu-link')) {
+                const point = target.getAttribute('href');
+
+                if (point && point !== '#') smoothScrolling(point);
+
+                showMenu(popupDialogMenu, false);
+            }
+        }
+
+        // Button footer add Smooth Scrolling
+        if (target.classList.contains('button-footer') || target.parentNode.classList.contains('button-footer')) {
+            smoothScrolling(target.closest('.button-footer').firstElementChild.getAttribute('href'));
         }
     });
 };
