@@ -524,6 +524,11 @@ template,
 .header-contacts__arrow img {
     margin-top: 12px;
     margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.header-contacts__arrow img.show-number {
+    transform: rotate(90deg);
 }
 
 .header-contacts__messagers {
