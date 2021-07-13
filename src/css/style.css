@@ -4719,10 +4719,7 @@ div.wave-block:nth-child(17):after {
 
 .popup {
     position: fixed;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    visibility: hidden;
+    display: none;
     top: 0;
     left: 0;
     width: 100%;
@@ -4819,6 +4816,14 @@ div.wave-block:nth-child(17):after {
         max-height: 480px;
     }
 }
+.popup-content {
+    transition: all 0.3s;
+    transform: scale(0);
+}
+
+.popup-dialog.show-content {
+    transform: scale(1);
+}
 
 .popup-dialog-menu {
     position: absolute;
@@ -4836,7 +4841,7 @@ div.wave-block:nth-child(17):after {
     transition: 1s;
 }
 
-.popup-dialog-menu.show-menu {
+.popup-dialog-menu.show-content {
     transform: translate3d(0, 0, 0);
 }
 
@@ -4990,6 +4995,11 @@ div.wave-block:nth-child(17):after {
         height: auto;
         max-height: 100vh;
     }
+}
+
+.popup-privacy {
+    visibility: hidden;
+    transform: scale(0);
 }
 
 .popup-dialog-privacy {
@@ -5961,6 +5971,11 @@ div.wave-block:nth-child(17):after {
     }
 }
 
+.popup-portfolio {
+    visibility: hidden;
+    transform: scale(0);
+}
+
 .popup-portfolio-slider {
     position: relative;
     height: 100%;
@@ -6431,6 +6446,11 @@ div.wave-block:nth-child(17):after {
     font-size: 14px;
 }
 
+.popup-transparency {
+    visibility: hidden;
+    transform: scale(0);
+}
+
 .popup-transparency-slider {
     position: relative;
     width: 432px;
@@ -6607,6 +6627,11 @@ div.wave-block:nth-child(17):after {
 
 .popup-design-text__descr p {
     padding: 12px 0;
+}
+
+.popup-thank {
+    visibility: hidden;
+    transform: scale(0);
 }
 
 .popup-thank-content {
@@ -7616,6 +7641,10 @@ div.wave-block:nth-child(17):after {
     .close-menu {
         top: -6px;
     }
+}
+
+.show-popup {
+    display: flex;
 }
 
 .close-consultation {
