@@ -1,6 +1,7 @@
 import showPhoneNumber from './showPhoneNumber';
 import smoothScrolling from './smoothScrolling';
 import showPopup from './showPopup';
+import accordion from './accordion';
 
 const handlers = () => {
     document.addEventListener('click', e => {
@@ -41,9 +42,29 @@ const handlers = () => {
             showPopup(document.querySelector('.popup-repair-types'), true);
         }
 
-        // Popup Hide
+        // Show Popup Privacy
+        if (target.classList.contains('link-privacy')) {
+            showPopup(document.querySelector('.popup-privacy'), true);
+        }
+
+        // Show Popup Portfolio
+        // if (target.classList.contains('portfolio-slider__slide-frame')) {
+        //     showPopup(document.querySelector('.popup-portfolio'), true);
+        // }
+
+        // Show Popup Consultation
+        if (target.classList.contains('button-consultation')) {
+            showPopup(document.querySelector('.popup-consultation'), true);
+        }
+
+        // Hide Popups
         if (target.classList.contains('popup') || target.classList.contains('close')) {
             showPopup(target.closest('.popup'), false);
+        }
+
+        // Accordion
+        if (target.classList.contains('title_block')) {
+            if (!target.classList.contains('msg-active')) accordion(target);
         }
     });
 };

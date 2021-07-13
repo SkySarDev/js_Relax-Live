@@ -4816,12 +4816,13 @@ div.wave-block:nth-child(17):after {
         max-height: 480px;
     }
 }
+
 .popup-content {
     transition: all 0.3s;
     transform: scale(0);
 }
 
-.popup-dialog.show-content {
+.popup-content.show-content {
     transform: scale(1);
 }
 
@@ -4995,11 +4996,6 @@ div.wave-block:nth-child(17):after {
         height: auto;
         max-height: 100vh;
     }
-}
-
-.popup-privacy {
-    visibility: hidden;
-    transform: scale(0);
 }
 
 .popup-dialog-privacy {
@@ -5971,11 +5967,6 @@ div.wave-block:nth-child(17):after {
     }
 }
 
-.popup-portfolio {
-    visibility: hidden;
-    transform: scale(0);
-}
-
 .popup-portfolio-slider {
     position: relative;
     height: 100%;
@@ -6446,11 +6437,6 @@ div.wave-block:nth-child(17):after {
     font-size: 14px;
 }
 
-.popup-transparency {
-    visibility: hidden;
-    transform: scale(0);
-}
-
 .popup-transparency-slider {
     position: relative;
     width: 432px;
@@ -6627,11 +6613,6 @@ div.wave-block:nth-child(17):after {
 
 .popup-design-text__descr p {
     padding: 12px 0;
-}
-
-.popup-thank {
-    visibility: hidden;
-    transform: scale(0);
 }
 
 .popup-thank-content {
