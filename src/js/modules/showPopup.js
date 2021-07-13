@@ -1,7 +1,10 @@
+import { scrollShow, scrollHide } from './services';
+
 const showPopup = (element, show) => {
     const popupDialog = element.querySelector('.popup-content');
 
     if (show) {
+        scrollHide();
         element.classList.add('show-popup');
 
         setTimeout(() => {
@@ -9,6 +12,7 @@ const showPopup = (element, show) => {
         }, 0);
     } else {
         popupDialog.classList.remove('show-content');
+        scrollShow();
 
         setTimeout(() => {
             element.classList.remove('show-popup');
