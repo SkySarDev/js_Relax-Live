@@ -1,8 +1,6 @@
-const showMenu = show => {
-    const popupDialogMenu = document.querySelector('.popup-dialog-menu');
-
-    if (show) popupDialogMenu.classList.add('show-menu');
-    else popupDialogMenu.classList.remove('show-menu');
+const showMenu = (menuElement, show) => {
+    if (show) menuElement.classList.add('show-menu');
+    else menuElement.classList.remove('show-menu');
 };
 
 export default showMenu;
