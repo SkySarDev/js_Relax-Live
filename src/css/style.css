@@ -6467,8 +6467,13 @@ div.wave-block:nth-child(17):after {
     width: 100%;
 }
 
+.popup-transparency-slider__slide img {
+    width: 432px;
+}
+
 @media (max-width: 1024px) {
-    .popup-transparency-slider {
+    .popup-transparency-slider,
+    .popup-transparency-slider__slide img {
         width: 390px;
         height: 510px;
     }
@@ -6479,7 +6484,8 @@ div.wave-block:nth-child(17):after {
 }
 
 @media (max-width: 575px) {
-    .popup-transparency-slider {
+    .popup-transparency-slider,
+    .popup-transparency-slider__slide img {
         width: 300px;
         height: 453px;
     }

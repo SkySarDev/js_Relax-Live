@@ -3,9 +3,13 @@ import smoothScrolling from './smoothScrolling';
 import showPopup from './showPopup';
 import accordion from './accordion';
 import formulaToolip from './formulaToolip';
+import slider from './slider';
 
 const handlers = () => {
     const formula = document.getElementById('formula');
+
+    const getIndexElement = (elementsSelector, target) =>
+        Array.from(document.querySelectorAll(elementsSelector)).indexOf(target);
 
     document.addEventListener('click', e => {
         const target = e.target;
@@ -58,6 +62,19 @@ const handlers = () => {
         // Show Popup Consultation
         if (target.classList.contains('button-consultation')) {
             showPopup(document.querySelector('.popup-consultation'), true);
+        }
+
+        // Show Popup Transparency
+        if (target.classList.contains('transparency-item__img')) {
+            slider(
+                '.popup-transparency-slider-wrapper',
+                '.popup-transparency-slider__slide',
+                '#transparency_right',
+                '#transparency_left',
+                '#transparency-popup-counter',
+                getIndexElement('.transparency-item__img', target)
+            );
+            showPopup(document.querySelector('.popup-transparency'), true);
         }
 
         // Hide Popups
