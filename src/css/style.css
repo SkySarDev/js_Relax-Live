@@ -1550,6 +1550,16 @@ template,
     }
 }
 
+.rotate .formula-item-popup {
+    top: 155px;
+    padding-top: 40px;
+}
+
+.rotate .formula-item-popup:before {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
 .repair-types {
     position: relative;
     padding: 100px 0;

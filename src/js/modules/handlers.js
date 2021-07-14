@@ -2,8 +2,11 @@ import showPhoneNumber from './showPhoneNumber';
 import smoothScrolling from './smoothScrolling';
 import showPopup from './showPopup';
 import accordion from './accordion';
+import formulaToolip from './formulaToolip';
 
 const handlers = () => {
+    const formula = document.getElementById('formula');
+
     document.addEventListener('click', e => {
         const target = e.target;
         const popupMenu = document.querySelector('.popup-menu');
@@ -66,6 +69,18 @@ const handlers = () => {
         if (target.classList.contains('title_block')) {
             if (!target.classList.contains('msg-active')) accordion(target);
         }
+    });
+
+    // Formula Tooltip Show
+    formula.addEventListener('mouseover', e => {
+        if (e.target.classList.contains('formula-item__icon-inner-text'))
+            formulaToolip(e.target.closest('.formula-item'), true);
+    });
+
+    // Formula Tooltip Hide
+    formula.addEventListener('mouseout', e => {
+        if (e.target.classList.contains('formula-item__icon-inner-text'))
+            formulaToolip(e.target.closest('.formula-item'), false);
     });
 };
 
