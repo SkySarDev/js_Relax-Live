@@ -2454,14 +2454,20 @@ div.wave-block:nth-child(17):after {
 
 .transparency-slider {
     padding-top: 40px;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
 }
 
 @media (max-width: 1090px) {
-    .transparency-slider.row {
-        display: block;
+    .transparency-slider {
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        width: 350px;
+    }
+}
+
+@media (max-width: 575px) {
+    .transparency-slider {
+        width: 270px;
     }
 }
 
@@ -2545,12 +2551,7 @@ div.wave-block:nth-child(17):after {
     .transparency-item {
         margin-left: auto;
         margin-right: auto;
-    }
-}
-
-@media (max-width: 1024px) {
-    .transparency-item {
-        width: auto;
+        width: 100%;
     }
 }
 
@@ -2579,9 +2580,9 @@ div.wave-block:nth-child(17):after {
     color: #000000;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1090px) {
     .transparency-item__descr {
-        width: 453px;
+        width: 350px;
     }
 }
 
