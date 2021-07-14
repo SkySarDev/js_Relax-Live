@@ -4250,6 +4250,7 @@ div.wave-block:nth-child(17):after {
 }
 
 @media (max-width: 575px) {
+    .reviews-slider-wrap,
     .reviews-slider__slide-descr {
         max-width: 290px;
     }
@@ -8609,6 +8610,11 @@ strong {
 .mobile-row:nth-child(odd) {
     border-radius: 3px;
     background: #ffffff;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s;
 }
 
 @media (max-width: 575px) {
