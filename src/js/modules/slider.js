@@ -22,8 +22,7 @@ const slider = (sliderWrap, slides, next, prev, counterID, start) => {
 
         sliderWrapper.style.transform = `translateX(-${index}00%)`;
     };
-
-    if (index) slideSwipe();
+    slideSwipe();
 
     btnNext.addEventListener('click', () => {
         index++;
