@@ -38,3 +38,14 @@ slider({
     sliderWrap: '.repair-types-slider-vertical',
     slides: '[data-types-repair]',
 });
+// Slider Nav List Repair
+slider({
+    sliderWrap: '.nav-list-repair',
+    slides: '.repair-types-nav__item',
+    next: '#nav-arrow-repair-right_base',
+    prev: '#nav-arrow-repair-left_base',
+    swipePercent: [
+        { maxWidth: 1024, percent: 50 },
+        { maxWidth: 575, percent: 100 },
+    ],
+});

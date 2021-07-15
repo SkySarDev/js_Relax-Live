@@ -1,6 +1,19 @@
-const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start }) => {
+const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start, swipePercent }) => {
     const sliderWrapper = document.querySelector(sliderWrap),
         slidesLength = sliderWrapper.querySelectorAll(slides).length;
+
+    const getPercent = () => {
+            if (swipePercent) {
+                let percent;
+
+                for (const options of swipePercent) {
+                    if (document.documentElement.clientWidth <= options.maxWidth) percent = options.percent;
+                }
+                return percent;
+            }
+            return 100;
+        },
+        percentToSwipe = getPercent();
 
     let index = start ? start : 0,
         currentSlide = null,
@@ -16,11 +29,13 @@ const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start })
     }
 
     const slideSwipe = () => {
-        const axis = direction === 'vertical' ? 'Y' : 'X';
+        const swipe = `-${index * percentToSwipe}%`,
+            axisX = !direction ? swipe : 0,
+            axisY = direction === 'vertical' ? swipe : 0;
+
+        sliderWrapper.style.transform = `translate(${axisX}, ${axisY})`;
 
         if (currentSlide) currentSlide.textContent = index + 1;
-
-        sliderWrapper.style.transform = `translate${axis}(-${index}00%)`;
     };
     slideSwipe();
 
@@ -31,7 +46,7 @@ const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start })
         btnNext.addEventListener('click', () => {
             index++;
 
-            if (index >= slidesLength) index = 0;
+            if (index * percentToSwipe >= slidesLength * percentToSwipe) index = 0;
 
             slideSwipe();
         });
@@ -39,7 +54,7 @@ const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start })
         btnPrev.addEventListener('click', () => {
             index--;
 
-            if (index < 0) index = slidesLength - 1;
+            if (index * percentToSwipe < 0) index = slidesLength - 1;
 
             slideSwipe();
         });
