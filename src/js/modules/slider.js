@@ -1,8 +1,6 @@
-const slider = (sliderWrap, slides, next, prev, counterID, start) => {
+const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start }) => {
     const sliderWrapper = document.querySelector(sliderWrap),
-        btnNext = document.querySelector(next),
-        btnPrev = document.querySelector(prev),
-        slidesLength = document.querySelectorAll(slides).length;
+        slidesLength = sliderWrapper.querySelectorAll(slides).length;
 
     let index = start ? start : 0,
         currentSlide = null,
@@ -18,27 +16,34 @@ const slider = (sliderWrap, slides, next, prev, counterID, start) => {
     }
 
     const slideSwipe = () => {
+        const axis = direction === 'vertical' ? 'Y' : 'X';
+
         if (currentSlide) currentSlide.textContent = index + 1;
 
-        sliderWrapper.style.transform = `translateX(-${index}00%)`;
+        sliderWrapper.style.transform = `translate${axis}(-${index}00%)`;
     };
     slideSwipe();
 
-    btnNext.addEventListener('click', () => {
-        index++;
+    if (next && prev) {
+        const btnNext = document.querySelector(next),
+            btnPrev = document.querySelector(prev);
 
-        if (index >= slidesLength) index = 0;
+        btnNext.addEventListener('click', () => {
+            index++;
 
-        slideSwipe();
-    });
+            if (index >= slidesLength) index = 0;
 
-    btnPrev.addEventListener('click', () => {
-        index--;
+            slideSwipe();
+        });
 
-        if (index < 0) index = slidesLength - 1;
+        btnPrev.addEventListener('click', () => {
+            index--;
 
-        slideSwipe();
-    });
+            if (index < 0) index = slidesLength - 1;
+
+            slideSwipe();
+        });
+    }
 };
 
 export default slider;

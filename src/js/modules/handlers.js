@@ -67,15 +67,14 @@ const handlers = () => {
 
         // Show Popup Transparency
         if (target.classList.contains('transparency-item__img')) {
-            slider(
-                'horizontal',
-                '.popup-transparency-slider-wrapper',
-                '.popup-transparency-slider__slide',
-                '#transparency_right',
-                '#transparency_left',
-                '#transparency-popup-counter',
-                getIndexElement('.transparency-item__img', target)
-            );
+            slider({
+                sliderWrap: '.popup-transparency-slider-wrapper',
+                slides: '.popup-transparency-slider__slide',
+                next: '#transparency_right',
+                prev: '#transparency_left',
+                counterID: '#transparency-popup-counter',
+                start: getIndexElement('.transparency-item__img', target),
+            });
             showPopup(document.querySelector('.popup-transparency'), true);
         }
 
@@ -93,15 +92,19 @@ const handlers = () => {
         if (target.classList.contains('repair-types-nav__item')) {
             const index = getIndexElement('.repair-types-nav__item', target);
             tabsManager('', '.repair-types-nav__item', index);
-            slider(
-                'horizontal',
-                `[data-types-repair="${index}"]`,
-                '.repair-types-slider__slide',
-                '#repair-types-arrow_right',
-                '#repair-types-arrow_left',
-                '#repair-counter'
-            );
-            slider('vertical', '.repair-types-slider-vertical', '[data-types-repair]', '', '', '', index);
+            slider({
+                sliderWrap: `[data-types-repair="${index}"]`,
+                slides: '.repair-types-slider__slide',
+                next: '#repair-types-arrow_right',
+                prev: '#repair-types-arrow_left',
+                counterID: '#repair-counter',
+            });
+            slider({
+                direction: 'vertical',
+                sliderWrap: '.repair-types-slider-vertical',
+                slides: '[data-types-repair]',
+                start: index,
+            });
         }
     });
 

@@ -8641,10 +8641,6 @@ strong {
     flex-direction: column;
 }
 
-[data-types-repair] {
-    /* display: none; */
-}
-
 @media (max-width: 575px) {
     .mobile-row {
         display: -webkit-box;
