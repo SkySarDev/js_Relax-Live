@@ -1645,9 +1645,17 @@ template,
     overflow: hidden;
 }
 
+.repair-types-slider-vertical {
+    height: 546px;
+}
+
 @media (max-width: 575px) {
     .repair-types-slider {
         width: 256px;
+        height: 256px;
+    }
+
+    .repair-types-slider-vertical {
         height: 256px;
     }
 }
@@ -1688,7 +1696,7 @@ template,
 }
 
 .repair-types-slider img {
-    width: 100%;
+    width: 546px;
 }
 
 .repair-types-tab {
@@ -1733,6 +1741,10 @@ template,
 
     .repair-types-nav__item svg {
         height: 33px;
+    }
+
+    .repair-types-slider img {
+        width: 256px;
     }
 }
 
@@ -8619,9 +8631,18 @@ strong {
     background: #ffffff;
 }
 
-.slider-wrapper {
+.slider-wrapper,
+.slider-wrapper-vertical {
     display: flex;
     transition: transform 0.5s;
+}
+
+.slider-wrapper-vertical {
+    flex-direction: column;
+}
+
+[data-types-repair] {
+    /* display: none; */
 }
 
 @media (max-width: 575px) {

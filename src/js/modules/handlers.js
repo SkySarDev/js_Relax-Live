@@ -4,6 +4,7 @@ import showPopup from './showPopup';
 import accordion from './accordion';
 import formulaToolip from './formulaToolip';
 import slider from './slider';
+import tabsManager from './tabsManager';
 
 const handlers = () => {
     const formula = document.getElementById('formula');
@@ -67,6 +68,7 @@ const handlers = () => {
         // Show Popup Transparency
         if (target.classList.contains('transparency-item__img')) {
             slider(
+                'horizontal',
                 '.popup-transparency-slider-wrapper',
                 '.popup-transparency-slider__slide',
                 '#transparency_right',
@@ -85,6 +87,21 @@ const handlers = () => {
         // Accordion
         if (target.classList.contains('title_block')) {
             if (!target.classList.contains('msg-active')) accordion(target);
+        }
+
+        // Tab Repair Types
+        if (target.classList.contains('repair-types-nav__item')) {
+            const index = getIndexElement('.repair-types-nav__item', target);
+            tabsManager('', '.repair-types-nav__item', index);
+            slider(
+                'horizontal',
+                `[data-types-repair="${index}"]`,
+                '.repair-types-slider__slide',
+                '#repair-types-arrow_right',
+                '#repair-types-arrow_left',
+                '#repair-counter'
+            );
+            slider('vertical', '.repair-types-slider-vertical', '[data-types-repair]', '', '', '', index);
         }
     });
 
