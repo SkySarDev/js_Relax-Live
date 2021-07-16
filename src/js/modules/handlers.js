@@ -5,12 +5,10 @@ import accordion from './accordion';
 import formulaToolip from './formulaToolip';
 import slider from './slider';
 import tabsManager from './tabsManager';
+import { getIndexElement } from './services';
 
 const handlers = () => {
     const formula = document.getElementById('formula');
-
-    const getIndexElement = (elementsSelector, target) =>
-        Array.from(document.querySelectorAll(elementsSelector)).indexOf(target);
 
     document.addEventListener('click', e => {
         const target = e.target;
@@ -56,9 +54,31 @@ const handlers = () => {
         }
 
         // Show Popup Portfolio
-        // if (target.classList.contains('portfolio-slider__slide-frame')) {
-        //     showPopup(document.querySelector('.popup-portfolio'), true);
-        // }
+        if (target.classList.contains('portfolio-slider__slide-frame')) {
+            const parent = target.closest('.portfolio-slider-mobile')
+                    ? '.portfolio-slider-mobile'
+                    : '.portfolio-slider-wrapper',
+                indexEl = getIndexElement(`${parent} .portfolio-slider__slide-frame`, target);
+
+            // Slider Popup Portfolio Slides
+            slider({
+                sliderWrap: '.popup-portfolio-slider-wrapper',
+                slides: '.popup-portfolio-slider__slide',
+                next: '#popup_portfolio_right',
+                prev: '#popup_portfolio_left',
+                counterID: '#popup-portfolio-counter',
+                start: indexEl,
+            });
+            // Slider Popup Portfolio Texts
+            slider({
+                sliderWrap: '.popup-portfolio-text-wrapper',
+                slides: '.popup-portfolio-text',
+                next: '#popup_portfolio_right',
+                prev: '#popup_portfolio_left',
+                start: indexEl,
+            });
+            showPopup(document.querySelector('.popup-portfolio'), true);
+        }
 
         // Show Popup Consultation
         if (target.classList.contains('button-consultation')) {
