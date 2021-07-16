@@ -126,18 +126,38 @@ const handlers = () => {
                 start: index,
             });
         }
+
+        // Formula Tooltip Mobile
+        if (target.closest('.formula-slider-wrap')) {
+            if (target.classList.contains('formula-slider__slide')) {
+                formulaToolip({
+                    element: target,
+                    show: true,
+                    elementsHide: '.formula-slider__slide',
+                });
+            }
+
+            if (target.closest('.slider-arrow')) {
+                formulaToolip({ elementsHide: '.formula-slider__slide' });
+            }
+        }
     });
 
     // Formula Tooltip Show
     formula.addEventListener('mouseover', e => {
         if (e.target.classList.contains('formula-item__icon-inner-text'))
-            formulaToolip(e.target.closest('.formula-item'), true);
+            formulaToolip({
+                element: e.target.closest('.formula-item'),
+                show: true,
+            });
     });
 
     // Formula Tooltip Hide
     formula.addEventListener('mouseout', e => {
         if (e.target.classList.contains('formula-item__icon-inner-text'))
-            formulaToolip(e.target.closest('.formula-item'), false);
+            formulaToolip({
+                element: e.target.closest('.formula-item'),
+            });
     });
 };
 

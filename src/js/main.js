@@ -81,3 +81,14 @@ slider({
     prev: '#portfolio-arrow-mobile_left',
     counterID: '#portfolio-counter',
 });
+// Slider Formula
+slider({
+    sliderWrap: '.formula-slider-wrapper',
+    slides: '.formula-slider__slide',
+    next: '#formula-arrow_right',
+    prev: '#formula-arrow_left',
+    slideShowOpt: [
+        { maxWidth: 1024, percent: 50, slidesToShow: 2 },
+        { maxWidth: 780, percent: 100, slidesToShow: 1 },
+    ],
+});
