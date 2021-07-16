@@ -180,13 +180,13 @@
 					<div class="feedback-wrap">
 						<div class="feedback__icon"><img src="./images/main/feedback_icon.svg" alt="phone"></div>
 						<div class="feedback__title">Получите консультацию от специалиста в удобное для Вас время</div>
-						<form class="feedback__form" id="feedback1">
+						<form class="feedback__form submit-form" id="feedback1">
 							<div class="feedback__input">
 								<input class="input feedback__input-input" name="phone" type="text"
-									placeholder="Введите номер телефона" id="feedback-input1" minlength="18"
-									autocomplete="off">
+									placeholder="Введите номер телефона" id="feedback-input1" pattern=".{18,}"
+									autocomplete="off" required="">
 							</div>
-							<button class="button">Перезвоните мне</button>
+							<button class="button" disabled>Перезвоните мне</button>
 							<div class="checkbox"><input class="checkbox__input" type="checkbox" id="checkbox1"> <label
 									class="checkbox__label" for="checkbox1"></label>
 								<div class="checkbox__descr checkbox__descr_round-feedback">Я соглашаюсь с
@@ -597,17 +597,18 @@
 				<span>вашу мечту о ремонте со встречи?</span>
 			</div>
 			<div class="feedback-block__descr">Обсудите проект со специалистом или вызовите замерщика.</div>
-			<form class="feedback-block__form" id="feedback2"><label><span><sup>*</sup>Введите ваше имя:</span> <input
-						type="text" class="feedback-block__form-input feedback-block__form-input_name" name="name"
-						required="" maxlength="20" autocomplete="off"></label> <label><span><sup>*</sup>Введите ваш
+			<form class="feedback-block__form submit-form" id="feedback2"><label><span><sup>*</sup>Введите ваше
+						имя:</span> <input type="text"
+						class="feedback-block__form-input feedback-block__form-input_name" name="name" maxlength="20"
+						autocomplete="off" required=""></label> <label><span><sup>*</sup>Введите ваш
 						номер:</span> <input type="text"
 						class="feedback-block__form-input feedback-block__form-input_phone" name="phone"
-						id="feedback-input2" required="" placeholder="+7 (___)___-__-__" minlength="18"
+						id="feedback-input2" required="" placeholder="+7 (___)___-__-__" pattern=".{18,}"
 						autocomplete="off"></label>
-				<button class="button button-feedback-block">Перезвоните мне</button>
+				<button class="button button-feedback-block" disabled>Перезвоните мне</button>
 				<div class="checkbox checkbox-feedback-block">
-					<input class="checkbox__input" type="checkbox" id="checkbox2" required=""> <label
-						class="checkbox__label" for="checkbox2"></label>
+					<input class="checkbox__input" type="checkbox" id="checkbox2"> <label class="checkbox__label"
+						for="checkbox2"></label>
 					<div class="checkbox__descr">Нажимая на кнопку, Вы даете согласие на
 						<span class="link-privacy">обработку своих персональных данных</span>
 					</div>
@@ -914,12 +915,12 @@
 				<div class="feedback-wrap">
 					<div class="feedback__icon"><img src="./images/main/feedback_icon.svg" alt=""></div>
 					<div class="feedback__title">Получите консультацию от специалиста в удобное для Вас время</div>
-					<form class="feedback__form" id="feedback3">
+					<form class="feedback__form submit-form" id="feedback3">
 						<div class="feedback__input"><input class="input feedback__input-input" name="phone" type="text"
-								placeholder="Введите номер телефона" id="feedback-input3" minlength="18"
-								autocomplete="off">
+								placeholder="Введите номер телефона" id="feedback-input3" pattern=".{18,}"
+								autocomplete="off" required="">
 						</div>
-						<button class="button">Перезвоните мне</button>
+						<button class="button" disabled>Перезвоните мне</button>
 						<div class="checkbox"><input class="checkbox__input" type="checkbox" id="checkbox3"> <label
 								class="checkbox__label" for="checkbox3"></label>
 							<div class="checkbox__descr checkbox__descr_round-feedback">Я соглашаюсь с
@@ -1093,17 +1094,19 @@
 				<span>стоимости ремонта Вашего помещения</span>
 			</div>
 			<div class="feedback-block__descr">Обсудите проект со специалистом или вызовите замерщика.</div>
-			<form class="feedback-block__form" id="feedback4"><label><span><sup>*</sup>Введите ваше имя:</span> <input
-						type="text" class="feedback-block__form-input feedback-block__form-input_name" name="name"
-						required="" maxlength="20" autocomplete="off"></label> <label><span><sup>*</sup>Введите ваш
+			<form class="feedback-block__form submit-form" id="feedback4"><label><span><sup>*</sup>Введите ваше
+						имя:</span> <input type="text"
+						class="feedback-block__form-input feedback-block__form-input_name" name="name" required=""
+						maxlength="20" autocomplete="off"></label>
+				<label><span><sup>*</sup>Введите ваш
 						номер:</span> <input type="text"
 						class="feedback-block__form-input feedback-block__form-input_phone" name="phone"
-						id="feedback-input4" required="" placeholder="+7 (___)___-__-__" minlength="18"
+						id="feedback-input4" required="" placeholder="+7 (___)___-__-__" pattern=".{18,}"
 						autocomplete="off"></label>
-				<button class="button button-feedback-block">Перезвоните мне</button>
+				<button class="button button-feedback-block" disabled>Перезвоните мне</button>
 				<div class="checkbox checkbox-feedback-block">
-					<input class="checkbox__input" type="checkbox" id="checkbox4" required=""> <label
-						class="checkbox__label" for="checkbox4"></label>
+					<input class="checkbox__input" type="checkbox" id="checkbox4"> <label class="checkbox__label"
+						for="checkbox4"></label>
 					<div class="checkbox__descr">Нажимая на кнопку, Вы даете согласие на
 						<span class="link-privacy">обработку своих персональных данных</span>
 					</div>
@@ -1389,17 +1392,18 @@
 				<span>на свой вопрос?</span>
 			</div>
 			<div class="feedback-block__descr">Обсудите проект со специалистом или вызовите замерщика.</div>
-			<form class="feedback-block__form" id="feedback5"><label><span><sup>*</sup>Введите ваше имя:</span> <input
-						type="text" class="feedback-block__form-input feedback-block__form-input_name" name="name"
-						required="" maxlength="20" autocomplete="off"></label> <label><span><sup>*</sup>Введите ваш
+			<form class="feedback-block__form submit-form" id="feedback5"><label><span><sup>*</sup>Введите ваше
+						имя:</span> <input type="text"
+						class="feedback-block__form-input feedback-block__form-input_name" name="name" required=""
+						maxlength="20" autocomplete="off" pattern=".{5,}"></label> <label><span><sup>*</sup>Введите ваш
 						номер:</span> <input type="text"
 						class="feedback-block__form-input feedback-block__form-input_phone" name="phone"
-						id="feedback-input5" required="" placeholder="+7 (___)___-__-__" minlength="18"
+						id="feedback-input5" required="" placeholder="+7 (___)___-__-__" pattern=".{18,}"
 						autocomplete="off"></label>
-				<button class="button button-feedback-block">Перезвоните мне</button>
+				<button class="button button-feedback-block" disabled>Перезвоните мне</button>
 				<div class="checkbox checkbox-feedback-block">
-					<input class="checkbox__input" type="checkbox" id="checkbox5" required=""> <label
-						class="checkbox__label" for="checkbox5"></label>
+					<input class="checkbox__input" type="checkbox" id="checkbox5"> <label class="checkbox__label"
+						for="checkbox5"></label>
 					<div class="checkbox__descr">Нажимая на кнопку, Вы даете согласие на
 						<span class="link-privacy">обработку своих персональных данных</span>
 					</div>
@@ -1519,11 +1523,12 @@
 			</div>
 			<div class="feedback__icon"><img src="./images/main/feedback_icon.svg" alt=""></div>
 			<div class="feedback__title">Получите консультацию от специалиста в удобное для Вас время</div>
-			<form class="feedback__form" id="feedback6">
+			<form class="feedback__form submit-form" id="feedback6">
 				<div class="feedback__input"><input class="input feedback__input-input" name="phone" type="text"
-						placeholder="Введите номер телефона" id="feedback-input6" minlength="18" autocomplete="off">
+						placeholder="Введите номер телефона" id="feedback-input6" pattern=".{18,}" autocomplete="off"
+						required="">
 				</div>
-				<button class="button button-consultation">Перезвоните мне</button>
+				<button class="button button-consultation button-consultation-popup" disabled>Перезвоните мне</button>
 				<div class="checkbox"><input class="checkbox__input" type="checkbox" id="checkbox6"> <label
 						class="checkbox__label checkbox__label-consultation" for="checkbox6"></label>
 					<div class="checkbox__descr checkbox__descr_round-feedback">Я соглашаюсь с
@@ -1547,9 +1552,30 @@
 						fill="#fff" fill-opacity=".8"></path>
 				</svg>
 			</div>
-			<div class="popup-thank-content">
+			<div class="popup-thank-content  popup-content">
 				<div class="popup-thank__title">Спасибо<br>за обращение!</div>
 				<div class="popup-thank__descr">Ожидайте звонка нашего специалиста. Будем рады помогать Вам!</div>
+				<div class="popup-thank__logo">Relax Live</div>
+			</div>
+		</div><!-- /feedback -->
+	</div>
+	<div class="popup popup-error">
+		<div class="feedback-wrap popup-error-bg">
+			<div class="close close-thank">
+				<svg width="22" height="22" fill="none" viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+					<mask id="a" fill="#fff">
+						<path fill-rule="evenodd" clip-rule="evenodd"
+							d="M21.673.327a1.118 1.118 0 0 0-1.581 0L11 9.42 1.909.327A1.118 1.118 0 0 0 .327 1.91L9.42 11 .327 20.091a1.118 1.118 0 1 0 1.582 1.581L11 12.582l9.091 9.09a1.118 1.118 0 1 0 1.581-1.58L12.582 11l9.09-9.091a1.118 1.118 0 0 0 0-1.582z">
+						</path>
+					</mask>
+					<path fill-rule="evenodd" clip-rule="evenodd"
+						d="M21.673.327a1.118 1.118 0 0 0-1.581 0L11 9.42 1.909.327A1.118 1.118 0 0 0 .327 1.91L9.42 11 .327 20.091a1.118 1.118 0 1 0 1.582 1.581L11 12.582l9.091 9.09a1.118 1.118 0 1 0 1.581-1.58L12.582 11l9.09-9.091a1.118 1.118 0 0 0 0-1.582z"
+						fill="#fff" fill-opacity=".8"></path>
+				</svg>
+			</div>
+			<div class="popup-thank-content popup-content">
+				<div class="popup-thank__title">Произошла<br>ошибка!</div>
+				<div class="popup-thank__descr">Попробуйте позже!</div>
 				<div class="popup-thank__logo">Relax Live</div>
 			</div>
 		</div><!-- /feedback -->

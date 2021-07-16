@@ -5,6 +5,7 @@ import accordion from './accordion';
 import formulaToolip from './formulaToolip';
 import slider from './slider';
 import tabsManager from './tabsManager';
+import sendForm from './sendForm';
 import { getIndexElement } from './services';
 
 const handlers = () => {
@@ -13,8 +14,6 @@ const handlers = () => {
     document.addEventListener('click', e => {
         const target = e.target;
         const popupMenu = document.querySelector('.popup-menu');
-
-        e.preventDefault();
 
         // Show/Hide Phone Number
         if (
@@ -30,6 +29,7 @@ const handlers = () => {
         // Close Menu / Smooth Scrolling
         if (popupMenu.classList.contains('show-popup')) {
             if (target.classList.contains('menu-link') || target.closest('.menu-link')) {
+                e.preventDefault();
                 const point = target.getAttribute('href');
 
                 if (point && point !== '#') smoothScrolling(point);
@@ -40,6 +40,7 @@ const handlers = () => {
 
         // Button footer add Smooth Scrolling
         if (target.classList.contains('button-footer') || target.parentNode.classList.contains('button-footer')) {
+            e.preventDefault();
             smoothScrolling(target.closest('.button-footer').firstElementChild.getAttribute('href'));
         }
 
@@ -141,6 +142,13 @@ const handlers = () => {
                 formulaToolip({ elementsHide: '.formula-slider__slide' });
             }
         }
+
+        // Checkbox Toggle
+        if (target.classList.contains('checkbox__label')) {
+            const checkbox = document.getElementById(target.getAttribute('for'));
+            checkbox.checked = !!checkbox.checked;
+            target.closest('.submit-form').querySelector('button').disabled = checkbox.checked;
+        }
     });
 
     // Formula Tooltip Show
@@ -158,6 +166,18 @@ const handlers = () => {
             formulaToolip({
                 element: e.target.closest('.formula-item'),
             });
+    });
+
+    document.addEventListener('submit', e => {
+        e.preventDefault();
+        const target = e.target,
+            button = target.querySelector('button');
+
+        if (button.classList.contains('button-consultation-popup'))
+            showPopup(document.querySelector('.popup-consultation'), false);
+
+        button.disabled = true;
+        sendForm(target);
     });
 };
 

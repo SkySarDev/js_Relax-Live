@@ -6710,6 +6710,11 @@ div.wave-block:nth-child(17):after {
     background: linear-gradient(90deg, #f48922 0%, #ffb015 100%);
 }
 
+.popup-error-bg {
+    background: -webkit-gradient(linear, left top, right top, from(#e44e13), to(#f57d1b));
+    background: linear-gradient(90deg, #e44e13 0%, #f57d1b 100%);
+}
+
 @media (max-width: 575px) {
     .popup-thank-bg {
         height: 381px;
@@ -7757,6 +7762,10 @@ div.wave-block:nth-child(17):after {
 .button:hover {
     background: -webkit-gradient(linear, left top, right top, from(#f17c0c), to(#fba600)), 50%;
     background: linear-gradient(90deg, #f17c0c 0%, #fba600 100%), 50%;
+}
+
+.button:disabled {
+    opacity: 0.5;
 }
 
 .button_o {
