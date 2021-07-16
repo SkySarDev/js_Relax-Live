@@ -44,8 +44,40 @@ slider({
     slides: '.repair-types-nav__item',
     next: '#nav-arrow-repair-right_base',
     prev: '#nav-arrow-repair-left_base',
-    swipePercent: [
+    slideShowOpt: [
         { maxWidth: 1024, percent: 50 },
         { maxWidth: 575, percent: 100 },
     ],
+});
+// Slider Nav List Repair
+slider({
+    sliderWrap: '.nav-list-repair',
+    slides: '.repair-types-nav__item',
+    next: '#nav-arrow-repair-right_base',
+    prev: '#nav-arrow-repair-left_base',
+    slideShowOpt: [
+        { maxWidth: 1024, percent: 50 },
+        { maxWidth: 575, percent: 100 },
+    ],
+});
+// Slider Portfolio
+slider({
+    sliderWrap: '.portfolio-slider-wrapper',
+    slides: '.portfolio-slider__slide',
+    next: '#portfolio-arrow_right',
+    prev: '#portfolio-arrow_left',
+    loop: false,
+    slideShowOpt: [
+        { maxWidth: Infinity, percent: 20, slidesToShow: 3 },
+        { maxWidth: 1024, percent: 20, slidesToShow: 2 },
+        { maxWidth: 900, percent: 20, slidesToShow: 1 },
+    ],
+});
+// Slider Portfolio Mobile
+slider({
+    sliderWrap: '.portfolio-slider-wrapper-mobile',
+    slides: '.portfolio-slider__slide-frame',
+    next: '#portfolio-arrow-mobile_right',
+    prev: '#portfolio-arrow-mobile_left',
+    counterID: '#portfolio-counter',
 });
