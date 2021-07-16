@@ -12,4 +12,9 @@ const scrollShow = () => {
     document.body.style.overflow = '';
 };
 
-export { scrollHide, scrollShow };
+const getIndexElement = (elementsSelector, target) => {
+    const index = Array.from(document.querySelectorAll(elementsSelector)).indexOf(target);
+    return index !== -1 ? index : 0;
+};
+
+export { scrollHide, scrollShow, getIndexElement };
