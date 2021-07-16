@@ -1,19 +1,21 @@
-const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start, swipePercent }) => {
+const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start, loop = true, slideShowOpt }) => {
     const sliderWrapper = document.querySelector(sliderWrap),
         slidesLength = sliderWrapper.querySelectorAll(slides).length;
 
-    const getPercent = () => {
-            if (swipePercent) {
-                let percent;
-
-                for (const options of swipePercent) {
-                    if (document.documentElement.clientWidth <= options.maxWidth) percent = options.percent;
+    const getswipeProps = () => {
+            let percent = 100,
+                slides = 1;
+            if (slideShowOpt) {
+                for (const options of slideShowOpt) {
+                    if (document.documentElement.clientWidth <= options.maxWidth) {
+                        percent = options.percent;
+                        slides = options.slidesToShow ? options.slidesToShow : slides;
+                    }
                 }
-                return percent;
             }
-            return 100;
+            return { percent, slides };
         },
-        percentToSwipe = getPercent();
+        swipeProps = getswipeProps();
 
     let index = start ? start : 0,
         currentSlide = null,
@@ -29,7 +31,7 @@ const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start, s
     }
 
     const slideSwipe = () => {
-        const swipe = `-${index * percentToSwipe}%`,
+        const swipe = `-${index * swipeProps.percent}%`,
             axisX = !direction ? swipe : 0,
             axisY = direction === 'vertical' ? swipe : 0;
 
@@ -46,7 +48,15 @@ const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start, s
         btnNext.addEventListener('click', () => {
             index++;
 
-            if (index * percentToSwipe >= slidesLength * percentToSwipe) index = 0;
+            if (!loop) {
+                btnPrev.style.display = 'flex';
+
+                if ((index + 1) * swipeProps.percent > (slidesLength - swipeProps.slides) * swipeProps.percent) {
+                    btnNext.style.display = 'none';
+                }
+            }
+
+            if (index * swipeProps.percent > (slidesLength - swipeProps.slides) * swipeProps.percent) index = 0;
 
             slideSwipe();
         });
@@ -54,7 +64,15 @@ const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start, s
         btnPrev.addEventListener('click', () => {
             index--;
 
-            if (index * percentToSwipe < 0) index = slidesLength - 1;
+            if (!loop) {
+                btnNext.style.display = 'flex';
+
+                if (index - 1 < 0) {
+                    btnPrev.style.display = 'none';
+                }
+            }
+
+            if (index < 0) index = slidesLength - swipeProps.slides;
 
             slideSwipe();
         });
