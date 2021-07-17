@@ -28,24 +28,38 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     target: isDev ? 'web' : 'browserslist',
     mode: 'development',
-    entry: path.resolve(__dirname, './src/js/main.js'),
+    entry: {
+        main: path.resolve(__dirname, './src/js/main.js'),
+        admin: path.resolve(__dirname, './src/js/admin.js'),
+    },
     output: {
         clean: true,
         path: path.resolve(__dirname, './dist'),
-        filename: isDev ? `./js/bundle.[name].js` : `./js/bundle.[chunkhash].js`,
+        filename: isDev ? './js/bundle.[name].js' : './js/bundle.[name].[chunkhash].js',
     },
     optimization: optimization(),
     plugins: [
         new MiniCssExtractPlugin({
-            filename: isDev ? `./css/style.css` : `./css/style.[chunkhash].css`,
+            filename: isDev ? './css/[name].css' : './css/[name].[chunkhash].css',
         }),
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
+            chunks: ['main'],
             minify: {
                 removeComments: isProd,
                 collapseWhitespace: isProd,
             },
+        }),
+        new HTMLWebpackPlugin({
+            template: path.resolve(__dirname, './src/admin/index.html'),
+            filename: 'admin/index.html',
+            chunks: ['admin'],
+        }),
+        new HTMLWebpackPlugin({
+            template: path.resolve(__dirname, './src/admin/table.html'),
+            filename: 'admin/table.html',
+            chunks: ['admin'],
         }),
         new CopyWebpackPlugin({
             patterns: [

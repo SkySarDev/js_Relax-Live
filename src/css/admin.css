@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Open Sans';
-    src: url("../fonts/OpenSans-Light.woff2"), url("../fonts/OpenSans-Light.woff");
+    src: url('../admin/fonts/OpenSans-Light.woff2'), url('../admin/fonts/OpenSans-Light.woff');
     font-weight: 300;
     font-display: swap;
     font-style: normal;
@@ -8,16 +8,15 @@
 
 @font-face {
     font-family: 'Open Sans';
-    src: url("../fonts/OpenSans-Regular.woff2"), url("../fonts/OpenSans-Regular.woff");
+    src: url('../admin/fonts/OpenSans-Regular.woff2'), url('../admin/fonts/OpenSans-Regular.woff');
     font-weight: 400;
     font-display: swap;
     font-style: normal;
 }
 
-
 @font-face {
     font-family: 'Open Sans';
-    src: url("../fonts/OpenSans-Bold.woff2"), url("../fonts/OpenSans-Bold.woff");
+    src: url('../admin/fonts/OpenSans-Bold.woff2'), url('../admin/fonts/OpenSans-Bold.woff');
     font-weight: 600;
     font-display: swap;
     font-style: normal;
@@ -28,11 +27,11 @@
     --firm_color: #055841;
     --hover_color: #00bf6f;
     --black-color: #333333;
-    --grey_color: #C8C5D1;
+    --grey_color: #c8c5d1;
 
-    --txt_grey: #B0B0B0;
+    --txt_grey: #b0b0b0;
 
-    --transition_time: .3s;
+    --transition_time: 0.3s;
 }
 
 * {
@@ -44,9 +43,8 @@
 }
 
 body {
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
 }
-
 
 /* UI компоненты и стили*/
 
@@ -80,19 +78,16 @@ body {
     margin: 90px;
     width: 80px;
     height: 80px;
-    animation: animate .9s linear infinite;
+    animation: animate 0.9s linear infinite;
 }
 @keyframes animate {
     0% {
-        transform:rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-        transform:rotate(360deg);
+        transform: rotate(360deg);
     }
 }
-
-
-
 
 .text__center {
     text-align: center;
@@ -109,8 +104,6 @@ body {
     height: 100%;
 }
 
-
-
 .main-header {
     font-weight: 600;
     font-size: 28px;
@@ -126,7 +119,7 @@ body {
     align-items: center;
     padding: 0 5px;
     border: 1px solid var(--grey_color);
-    background-color: #E7E5EB;
+    background-color: #e7e5eb;
     cursor: pointer;
 }
 
@@ -146,12 +139,12 @@ body {
     width: 123px;
     height: 28px;
     padding: 0 5px;
-    background-color: #F4F3F6;
+    background-color: #f4f3f6;
     cursor: pointer;
 }
 
 .select_option:hover {
-    background-color: #E7E5EB;
+    background-color: #e7e5eb;
 }
 
 .select_wrapper {
@@ -168,10 +161,6 @@ body {
     display: flex;
 }
 
-
-
-
-
 .header {
     display: flex;
     align-items: center;
@@ -186,7 +175,6 @@ body {
     vertical-align: bottom;
     fill: var(--firm_color);
 }
-
 
 .search_input {
     height: 44px;
@@ -215,7 +203,6 @@ body {
         height: 24px;
     }
 }
-
 
 /*   main   */
 
@@ -258,7 +245,7 @@ body {
     transform: translateX(-50%);
 }
 .tooltip:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 10px;
     height: 10px;
@@ -278,8 +265,8 @@ body {
     white-space: nowrap;
 }
 
-
-.action-remove, .action-change {
+.action-remove,
+.action-change {
     padding: 3px;
     background: transparent;
     border: none;
@@ -305,7 +292,6 @@ body {
     height: 13px;
     fill: var(--red_color);
 }
-
 
 .btn-addItem {
     width: 216px;
@@ -334,7 +320,6 @@ body {
     fill: white;
 }
 
-
 /*   form   */
 
 .input-wrapper {
@@ -349,7 +334,6 @@ body {
     padding: 8px 5px;
     color: var(--black-color);
     font-weight: 600;
-
 }
 
 .input:focus {
@@ -369,7 +353,7 @@ body {
     margin-bottom: 10px;
 }
 
-.text-warning{
+.text-warning {
     color: tomato;
 }
 
@@ -396,7 +380,6 @@ body {
     text-decoration: underline;
 }
 
-
 /*   Таблица клиентов   */
 .table__wrapper {
     display: flex;
@@ -408,7 +391,6 @@ body {
     min-width: 728px;
     width: 100%;
     border-collapse: collapse;
-
 }
 
 .table-th {
@@ -424,30 +406,29 @@ body {
     color: var(--firm_color);
 }
 
-.th-id{
+.th-id {
     min-width: 130px;
 }
 
-.th-type{
+.th-type {
     min-width: 260px;
 }
 
-.th-name{
+.th-name {
     min-width: 260px;
 }
 
-.th-units{
+.th-units {
     min-width: 110px;
 }
 
-.th-cost{
+.th-cost {
     min-width: 110px;
 }
 
-.th-handler{
+.th-handler {
     min-width: 130px;
 }
-
 
 .sorting {
     transform: rotate(180deg);
@@ -484,7 +465,6 @@ body {
     color: var(--txt_grey);
 }
 
-
 .icon-sort {
     width: 8px;
     height: 8px;
@@ -504,15 +484,13 @@ body {
 }
 
 @media screen and (max-width: 1200px) {
-    .th-type{
+    .th-type {
         min-width: 230px;
     }
 
-    .th-name{
+    .th-name {
         min-width: 230px;
     }
-
-
 }
 
 .table__date {
@@ -525,7 +503,6 @@ body {
         flex-direction: column;
     }
 }
-
 
 /*   Модальное окно   */
 
@@ -553,7 +530,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(51,51,51, .6);
+    background-color: rgba(51, 51, 51, 0.6);
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.15);
 }
 
@@ -562,8 +539,6 @@ body {
     font-weight: 700;
     margin-bottom: 30px;
 }
-
-
 
 .button__close {
     position: absolute;
