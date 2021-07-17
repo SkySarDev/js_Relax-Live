@@ -12,9 +12,9 @@ const sendForm = form => {
     form.reset();
 
     const deleteMsg = element => {
-        setInterval(() => {
+        setTimeout(() => {
             showPopup(element, false);
-        }, 5000);
+        }, 3500);
     };
 
     database({
