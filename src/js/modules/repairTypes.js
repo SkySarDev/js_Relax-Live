@@ -82,7 +82,7 @@ const repairTypes = () => {
         renderNavItems(repairData.keys());
     };
 
-    getData('../../assets/db.json')
+    getData('./assets/db.json')
         .then(res => setRepairData(res))
         .catch(error => {
             loading.className = 'show-error';
