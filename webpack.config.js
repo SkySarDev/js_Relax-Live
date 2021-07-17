@@ -30,6 +30,7 @@ module.exports = {
     mode: 'development',
     entry: {
         main: path.resolve(__dirname, './src/js/main.js'),
+        login: path.resolve(__dirname, './src/js/login.js'),
         admin: path.resolve(__dirname, './src/js/admin.js'),
     },
     output: {
@@ -54,7 +55,7 @@ module.exports = {
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, './src/admin/index.html'),
             filename: 'admin/index.html',
-            chunks: ['admin'],
+            chunks: ['login'],
         }),
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, './src/admin/table.html'),

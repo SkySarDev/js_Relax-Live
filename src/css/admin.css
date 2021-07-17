@@ -354,7 +354,12 @@ body {
 }
 
 .text-warning {
+    display: none;
     color: tomato;
+}
+
+.text-warning.show {
+    display: block;
 }
 
 .label sup {
