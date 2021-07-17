@@ -1,4 +1,4 @@
-const tabsManager = (tabsSelector, navItemsSelector, index = 0) => {
+const tabsManager = (itemsSelector, index = 0) => {
     const switcher = (arr, className) => {
         arr.forEach((item, i) => {
             if (i === index) item.classList.add(className);
@@ -6,8 +6,7 @@ const tabsManager = (tabsSelector, navItemsSelector, index = 0) => {
         });
     };
 
-    if (tabsSelector) switcher(document.querySelectorAll(tabsSelector), 'show');
-    if (navItemsSelector) switcher(document.querySelectorAll(navItemsSelector), 'active');
+    switcher(document.querySelectorAll(itemsSelector), 'active');
 };
 
 export default tabsManager;
