@@ -4,8 +4,9 @@ import showPopup from './showPopup';
 import accordion from './accordion';
 import formulaToolip from './formulaToolip';
 import slider from './slider';
-import tabsManager from './tabsManager';
+import tabsToggle from './tabsToggle';
 import sendForm from './sendForm';
+import repairTypes from './repairTypes';
 import { getIndexElement } from './services';
 
 const handlers = () => {
@@ -46,6 +47,7 @@ const handlers = () => {
 
         // Show Popup Repair
         if (target.closest('.link-repair-types')) {
+            repairTypes();
             showPopup(document.querySelector('.popup-repair-types'), true);
         }
 
@@ -112,7 +114,7 @@ const handlers = () => {
         // Tab Repair Types
         if (target.classList.contains('repair-types-nav__item')) {
             const index = getIndexElement('.repair-types-nav__item', target);
-            tabsManager('', '.repair-types-nav__item', index);
+            tabsToggle('.repair-types-nav__item', index);
             slider({
                 sliderWrap: `[data-types-repair="${index}"]`,
                 slides: '.repair-types-slider__slide',
