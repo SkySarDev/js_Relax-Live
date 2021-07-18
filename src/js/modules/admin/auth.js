@@ -1,6 +1,6 @@
 import { setCookie, redirect } from './services';
 
-const auth = () => {
+const auth = currentUrl => {
     const name = 'demo',
         pass = 'demo',
         loginForm = document.getElementById('login-form'),
@@ -24,7 +24,7 @@ const auth = () => {
                 return;
             } else {
                 setCookie('user', 'demo', { secure: false, 'max-age': 3600 });
-                redirect('/admin/table.html');
+                redirect(currentUrl + '/admin/table.html');
             }
         }
     });
