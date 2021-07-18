@@ -3,7 +3,7 @@ import tabsToggle from './tabsToggle';
 import slider from './slider';
 import { getIndexElement } from './services';
 
-const repairTypes = () => {
+const repairTypes = API_URL => {
     const repairData = new Map(),
         popupRepairTypes = document.querySelector('.popup-repair-types'),
         loading = document.getElementById('popup-repair-types-loading');
@@ -82,7 +82,7 @@ const repairTypes = () => {
         renderNavItems(repairData.keys());
     };
 
-    getData('./assets/db.json')
+    getData(API_URL + '/api/items')
         .then(res => setRepairData(res))
         .catch(error => {
             loading.className = 'show-error';

@@ -9,7 +9,7 @@ import sendForm from './sendForm';
 import repairTypes from './repairTypes';
 import { getIndexElement } from './services';
 
-const handlers = () => {
+const handlers = API_URL => {
     const formula = document.getElementById('formula');
 
     document.addEventListener('click', e => {
@@ -47,7 +47,7 @@ const handlers = () => {
 
         // Show Popup Repair
         if (target.closest('.link-repair-types')) {
-            repairTypes();
+            repairTypes(API_URL);
             showPopup(document.querySelector('.popup-repair-types'), true);
         }
 

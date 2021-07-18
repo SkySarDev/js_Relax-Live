@@ -8,7 +8,9 @@ import phoneMask from './modules/phoneMask';
 import validation from './modules/validation';
 import slider from './modules/slider';
 
-handlers();
+const API_URL = 'https://obscure-scrubland-21489.herokuapp.com';
+
+handlers(API_URL);
 phoneMask('[name="phone"]');
 validation('.feedback-block__form-input_name');
 
