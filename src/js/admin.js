@@ -5,6 +5,7 @@ import '../css/admin.css';
 
 import { getCookie, redirect } from './modules/admin/services';
 import listServices from './modules/admin/listServices';
+import handlers from './modules/admin/handlers';
 
 const API_URL = 'https://obscure-scrubland-21489.herokuapp.com';
 const currentUrl = window.location.origin + '/relax-life';
@@ -12,3 +13,4 @@ const currentUrl = window.location.origin + '/relax-life';
 if (!getCookie('demo')) redirect(currentUrl + '/admin');
 
 listServices(API_URL);
+handlers(API_URL);
