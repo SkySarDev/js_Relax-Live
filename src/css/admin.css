@@ -544,9 +544,15 @@ body {
 }
 
 .modal__header {
+    display: none;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 30px;
+}
+
+.modal__header-add.show,
+.modal__header-change.show {
+    display: block;
 }
 
 .button__close {
