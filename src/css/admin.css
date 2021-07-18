@@ -515,6 +515,10 @@ body {
     display: none;
 }
 
+#modal.show {
+    display: flex;
+}
+
 .modal {
     display: flex;
     flex-direction: column;

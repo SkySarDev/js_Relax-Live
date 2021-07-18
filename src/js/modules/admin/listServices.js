@@ -40,6 +40,8 @@ const listServices = API_URL => {
     };
 
     const renderTypeItems = navItems => {
+        typeItemsList.innerHTML = '<option value="Все услуги">Все услуги</option>';
+
         Array.from(navItems).forEach(item => {
             const typeItemOption = document.createElement('option');
             typeItemOption.value = item;
@@ -63,6 +65,7 @@ const listServices = API_URL => {
         const target = e.target;
 
         if (listServicesData.get(target.value)) renderTypeValues(listServicesData.get(target.value));
+        else renderTypeValues(Array.from(listServicesData.values()).flat());
     });
 
     getData(API_URL + '/api/items')
