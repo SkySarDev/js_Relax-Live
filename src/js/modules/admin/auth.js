@@ -23,7 +23,7 @@ const auth = currentUrl => {
                 loginForm.reset();
                 return;
             } else {
-                setCookie('user', 'demo', { secure: false, 'max-age': 3600 });
+                setCookie('user', 'demo', { secure: false, 'max-age': 86400 });
                 redirect(currentUrl + '/admin/table.html');
             }
         }
