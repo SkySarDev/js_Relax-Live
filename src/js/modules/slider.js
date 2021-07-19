@@ -3,21 +3,22 @@ const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start, l
         slidesLength = sliderWrapper.querySelectorAll(slides).length;
 
     const getswipeProps = () => {
-            let percent = 100,
-                slides = 1;
-            if (slideShowOpt) {
-                for (const options of slideShowOpt) {
-                    if (document.documentElement.clientWidth <= options.maxWidth) {
-                        percent = options.percent;
-                        slides = options.slidesToShow ? options.slidesToShow : slides;
-                    }
+        let percent = 100,
+            slides = 1;
+
+        if (slideShowOpt) {
+            for (const options of slideShowOpt) {
+                if (document.documentElement.clientWidth <= options.maxWidth) {
+                    percent = options.percent;
+                    slides = options.slidesToShow ? options.slidesToShow : slides;
                 }
             }
-            return { percent, slides };
-        },
-        swipeProps = getswipeProps();
+        }
+        return { percent, slides };
+    };
 
     let index = start ? start : 0,
+        swipeProps = getswipeProps(),
         currentSlide = null,
         totalSlides = null;
 
@@ -76,6 +77,30 @@ const slider = ({ direction, sliderWrap, slides, next, prev, counterID, start, l
 
             slideSwipe();
         });
+    }
+
+    if (slideShowOpt) {
+        let resizeTimeout;
+
+        const propsReset = () => {
+            if (next && prev) {
+                document.querySelector(next).style.display = '';
+                document.querySelector(prev).style.display = '';
+            }
+
+            index = 0;
+            swipeProps = getswipeProps();
+            slideSwipe();
+        };
+
+        const resizeThrottler = () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                propsReset();
+            }, 150);
+        };
+
+        window.addEventListener('resize', resizeThrottler);
     }
 };
 
