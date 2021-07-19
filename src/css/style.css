@@ -9357,3 +9357,8 @@ strong {
         flex: 0 0 100%;
     }
 }
+
+.container {
+    position: relative;
+    overflow: hidden;
+}
