@@ -132,16 +132,18 @@ const handlers = API_URL => {
 
         // Formula Tooltip Mobile
         if (target.closest('.formula-slider-wrap')) {
-            if (target.classList.contains('formula-slider__slide')) {
-                formulaToolip({
-                    element: target,
-                    show: true,
-                    elementsHide: '.formula-slider__slide',
-                });
-            }
+            if (document.documentElement.clientWidth > 780) {
+                if (target.classList.contains('formula-slider__slide')) {
+                    formulaToolip({
+                        element: target,
+                        show: true,
+                        elementsHide: '.formula-slider__slide',
+                    });
+                }
 
-            if (target.closest('.slider-arrow')) {
-                formulaToolip({ elementsHide: '.formula-slider__slide' });
+                if (target.closest('.slider-arrow')) {
+                    formulaToolip({ elementsHide: '.formula-slider__slide' });
+                }
             }
         }
 

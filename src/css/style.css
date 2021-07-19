@@ -1145,6 +1145,12 @@ template,
     }
 }
 
+@media (max-width: 780px) {
+    .formula-slider-wrap {
+        padding: 0 20px;
+    }
+}
+
 @media (max-width: 575px) {
     .formula-slider-wrap {
         padding: 0 20px;
@@ -1214,9 +1220,10 @@ template,
 
 @media (max-width: 575px) {
     .formula-slider-wrap {
-        width: 290px;
+        width: 320px;
         margin-left: auto;
         margin-right: auto;
+        padding: 0;
     }
 }
 
@@ -2504,6 +2511,12 @@ div.wave-block:nth-child(17):after {
         margin-left: auto;
         margin-right: auto;
         width: 350px;
+    }
+}
+
+@media (min-width: 1091px) {
+    .transparency-slider-wrapper {
+        transform: translate(0, 0) !important;
     }
 }
 
@@ -7369,6 +7382,7 @@ div.wave-block:nth-child(17):after {
     }
     .nav-list-repair {
         min-width: 390px;
+        transform: translate(0, 0) !important;
     }
 }
 
@@ -8337,6 +8351,78 @@ div.wave-block:nth-child(17):after {
     .active-item .problems-item-popup {
         visibility: visible;
         opacity: 1;
+    }
+}
+/* +++ */
+@media (max-width: 780px) {
+    .formula-item {
+        font-size: 20px;
+        opacity: 1;
+    }
+
+    .formula-slider__slide .formula-item__icon {
+        width: 80px;
+        height: 80px;
+        -webkit-box-shadow: 0 8px 40px rgba(254, 171, 23, 0.2);
+        box-shadow: 0 8px 40px rgba(254, 171, 23, 0.2);
+        opacity: 1;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+
+    .formula-slider__slide .formula-item__icon-inner {
+        color: #ffffff;
+        background: -webkit-gradient(linear, left top, right top, from(#f48922), to(#ffb015));
+        background: linear-gradient(90deg, #f48922 0%, #ffb015 100%);
+        width: 58px;
+        height: 58px;
+        font-size: 24px;
+    }
+
+    .formula-item__icon-inner__descr {
+        font-size: 20px;
+    }
+
+    .formula-item-popup {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 575px) {
+    .formula-slider__slide .formula-item__icon {
+        height: 48px;
+        width: 48px;
+    }
+
+    .formula-slider__slide .formula-item__icon-inner {
+        font-size: 15px;
+        height: 36px;
+        width: 36px;
+    }
+
+    .formula-slider__slide .formula-item__icon-inner {
+        background: -webkit-gradient(linear, left top, right top, from(#f48922), to(#ffb015));
+        background: linear-gradient(90deg, #f48922, #ffb015);
+        color: #fff;
+    }
+
+    .formula-item__descr {
+        font-size: 13px;
+        max-width: 167px;
+    }
+    .formula-item__descr {
+        padding-top: 10px;
+    }
+
+    .formula-item-popup {
+        bottom: auto;
+        font-size: 12px;
+        line-height: 20px;
+        max-width: 290px;
+        padding: 20px 18px 0;
+        text-align: center;
+        top: 100px;
     }
 }
 
