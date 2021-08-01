@@ -18,7 +18,7 @@ const sendForm = form => {
     };
 
     database({
-        url: 'https://infinite-gorge-09826.herokuapp.com/api/irvas/callback',
+        url: 'https://just-mini-server.herokuapp.com/api/callback',
         method: 'POST',
         body: JSON.stringify(body),
     })

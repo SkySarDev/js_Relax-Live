@@ -8,7 +8,7 @@ import phoneMask from './modules/phoneMask';
 import validation from './modules/validation';
 import slider from './modules/slider';
 
-const API_URL = 'https://obscure-scrubland-21489.herokuapp.com';
+const API_URL = 'https://relax-life.herokuapp.com';
 
 handlers(API_URL);
 phoneMask('[name="phone"]');
