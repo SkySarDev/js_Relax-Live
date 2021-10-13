@@ -3,7 +3,7 @@
 Landing page for a company engaged in repairing apartments.
 
 ### **Demo**
-https://skysar.site/relax-live/
+https://skysar.site/demo/relax-live/
 
 ### **Commands**
 
